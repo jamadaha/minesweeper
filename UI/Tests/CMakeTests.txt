@@ -1,0 +1,2 @@
+# Path is writte relative to CMaeLists.txt in parent folder
+include(Tests/CommandParsingTest.txt) 

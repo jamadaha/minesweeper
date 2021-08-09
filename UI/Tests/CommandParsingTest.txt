@@ -1,0 +1,17 @@
+# Tests
+## Command parsing
+add_executable(CommandParsingTest Tests/CommandParsingTest.cpp)
+
+### Fail cases
+add_test(CommandParse_Empty CommandParsingTest 1 "")
+add_test(CommandParse_Blank CommandParsingTest 1 " ")
+add_test(CommandParse_SpaceBetweenOptionAndPrefix CommandParsingTest 1 "Command - option")
+add_test(CommandParse_OptionAfterArgument CommandParsingTest 1 "Command argument -option")
+
+### Correct cases
+add_test(CommandParse_OnlyCommand CommandParsingTest 0 "Command")
+add_test(CommandParse_CommandWithOption CommandParsingTest 0 "Command -option")
+add_test(CommandParse_CommandWithOptions CommandParsingTest 0 "Command -option -option2")
+add_test(CommandParse_CommandWithArgument CommandParsingTest 0 "Command argument")
+add_test(CommandParse_CommandWithArguments CommandParsingTest 0 "Command argument argument2")
+add_test(CommandParse_CommandWithOptionsAndArguments CommandParsingTest 0 "Command -option -option2 argument argument2")
