@@ -3,17 +3,27 @@
 
 class Board {
     public:
+    enum Square {
+        None,
+        Empty,
+        Bomb  
+    };
+    
     Board(int bombCount, int sizeX, int sizeY);
 
-    int GetSquare(int x, int y);
+    Square GetSquare(int x, int y);
+    
     void Generate();
 
     private:
     int bombCount;
     int sizeX;
     int sizeY;
-    int *board;
+    Square *board;
 
+    void SetSquare(Square square, int x, int y);
+
+    void Clear();
     void PlaceBombs();
 };
 

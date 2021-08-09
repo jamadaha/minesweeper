@@ -1,0 +1,12 @@
+# Tests
+## GetSquare
+add_executable(BoardPlaceBombTest Tests/BoardPlaceBombTest.cpp ${SOURCES})
+
+### Fail cases
+
+### Correct cases
+add_test(BoardPlaceBombTest_NoBombs BoardPlaceBombTest 0 2 2)
+add_test(BoardPlaceBombTest_OneBomb BoardPlaceBombTest 1 2 2)
+add_test(BoardPlaceBombTest_ManyBombs BoardPlaceBombTest 32 8 8)
+add_test(BoardPlaceBombTest_AllButOne BoardPlaceBombTest 63 8 8)
+add_test(BoardPlaceBombTest_All BoardPlaceBombTest 64 8 8)
