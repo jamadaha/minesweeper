@@ -1,12 +1,13 @@
 #include <stdexcept>
 #include <string>
+#include <stdlib.h>
 
-#include "./../Command.cpp"
+#include "./../src/Classes/Command.h"
 
 int main(int argc, char* argv[]) {
     std::string inputString = argv[2];
     try {
-        Command{inputString};
+        new Command(inputString);
     } catch (std::exception e) {
         if (!std::atoi(argv[1]))
             throw e;

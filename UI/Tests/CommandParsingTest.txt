@@ -1,6 +1,6 @@
 # Tests
 ## Command parsing
-add_executable(CommandParsingTest Tests/CommandParsingTest.cpp)
+add_executable(CommandParsingTest Tests/CommandParsingTest.cpp ${SOURCES})
 
 ### Fail cases
 add_test(CommandParse_Empty CommandParsingTest 1 "")
