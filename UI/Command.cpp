@@ -26,18 +26,24 @@ Command::Command(std::string command) {
         case 1:
             if (command[i] == ' ')
                 break;
-            if (command[i] != '-')
+            if (command[i] != '-') {
                 type++;
+                i--;
+            } else if (command.length() == i)
+                return;
             else {
                 std::string option = "";
                 int ii = 1;
+                // check for command - option
+                if (command[i + ii] == ' ')
+                    throw std::invalid_argument("No spaces between dash and option");
+
                 while (i + ii < command.length() && command[i + ii] != ' ') {
                     option += command[i + ii];
                     ii++;
                 }
                     
                 this->options.push_back(option);
-                type++;
                 i += ii;
             }
             break;
@@ -45,6 +51,10 @@ Command::Command(std::string command) {
         case 2:
             if (i == command.length())
                 return;
+            
+            // check for command argument -option
+            if (command[i] == '-')
+                throw std::invalid_argument("No dash in argument");
 
             if (command[i] != ' ') {
                 std::string argument = "";
@@ -55,7 +65,6 @@ Command::Command(std::string command) {
                 }
                     
                 this->arguments.push_back(argument);
-                return;
             }
             break;
 
