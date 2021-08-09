@@ -1,19 +1,21 @@
 #ifndef COMMANDHANDLER_H
 #define COMMANDHANDLER_H
 
+#include "Command.h"
+
 #include <string>
-#include <unordered_map>
+#include <vector>
 
 class CommandHandler {
     public:
     void AddCommand(std::string );
-    void AddCommand(std::unordered_map<std::string, std::string> commands);
+    void AddCommand(std::vector<Command> commands);
 
 
-    void ParseCommand(std::string command);
+    void ParseInput(std::string Input);
 
     private:
-    std::unordered_map<std::string, std::string> commands;
+    std::vector<Command> commands;
 };
 
 #endif
