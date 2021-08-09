@@ -4,5 +4,12 @@ add_executable(BoardGetSquareTest Tests/BoardGetSquareTest.cpp ${SOURCES})
 
 ### Fail cases
 add_test(BoardGetSquare_SizeZeroBoard BoardGetSquareTest 1 0 0 0 0 0)
+add_test(BoardGetSquare_NegativeX BoardGetSquareTest 1 0 4 4 -1 0)
+add_test(BoardGetSquare_NegativeY BoardGetSquareTest 1 0 4 4 0 -1)
+add_test(BoardGetSquare_OutOfBoundsX BoardGetSquareTest 1 0 4 4 4 0)
+add_test(BoardGetSquare_OutOfBoundsY BoardGetSquareTest 1 0 4 4 0 4)
+
 
 ### Correct cases
+add_test(BoardGetSquare_WithinBoundsMinimum BoardGetSquareTest 0 0 4 4 0 0)
+add_test(BoardGetSquare_WithinBoundsMaximum BoardGetSquareTest 0 0 4 4 3 3)

@@ -12,5 +12,9 @@ Board::Board(int bombCount, int sizeX, int sizeY) {
 }
 
 int Board::GetSquare(int x, int y) {
+    if (x < 0 || y < 0)
+        throw std::invalid_argument("Cannot get a negative coordinate.");
+    if (x >= sizeX || y >= sizeY)
+        throw std::invalid_argument("Coordinates out of bounds");
     return board[x + y * sizeX];
 }
