@@ -8,7 +8,10 @@ class Board {
         Empty,
         Bomb  
     };
-    
+
+    int sizeX;
+    int sizeY;
+
     Board(int bombCount, int sizeX, int sizeY);
 
     Square GetSquare(int x, int y);
@@ -17,8 +20,6 @@ class Board {
 
     private:
     int bombCount;
-    int sizeX;
-    int sizeY;
     Square *board;
 
     void SetSquare(Square square, int x, int y);
