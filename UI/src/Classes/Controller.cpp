@@ -22,8 +22,6 @@ void Controller::OnCommandEntered(std::string input) {
     } catch (std::exception e) {
         printf("Error: %s", e.what());
     }
-    
-    //printf("%s, %s\n", std::get<0>(command).c_str(), std::get<1>(command)[0].c_str());
 }
 
 std::tuple<std::string, std::vector<std::string>> Controller::ParseCommand(std::string commandString) {
