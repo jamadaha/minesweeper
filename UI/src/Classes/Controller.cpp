@@ -14,7 +14,7 @@ void Controller::OnCommandEntered(std::string input) {
     std::function<void(std::vector<std::string>)> handler;
     try {
         handler = registeredCommands[std::get<0>(command)];
-        
+
         if (handler == nullptr)
             throw std::exception("Unregistered command");
 
@@ -45,7 +45,11 @@ void Controller::RegisterCommand(std::string command, std::function<void(std::ve
 }
 
 void Controller::OnHelpCommand(std::vector<std::string> arguments) {
-    printf("Ehh..\n");
+    std::vector<std::string> availableCommands;
+    for (auto k : registeredCommands)
+        availableCommands.push_back(k.first);
+
+    cli->DisplayHelp(availableCommands);
 }
 
 void Controller::Start() {

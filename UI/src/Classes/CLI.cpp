@@ -7,6 +7,7 @@ void CLI::DisplayBoard(Board board) {
 
 // Command related
 void CLI::DisplayHelp(std::vector<std::string> allowedCommands) {
+    printf("Available commands:\n");
     for (int i = 0; i < allowedCommands.capacity(); i++) 
         printf("%s\n", allowedCommands[i].c_str());
 }
