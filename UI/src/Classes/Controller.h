@@ -20,11 +20,11 @@ public:
     void Start();
 
 private:
-    std::unordered_map<std::string, std::function<void(std::vector<std::string>)>> registeredCommands;
+    std::unordered_map<std::string, std::tuple<std::string, std::function<void(std::vector<std::string>)>>> registeredCommands;
     Board *board;
     CLI *cli;
 
-    void RegisterCommand(std::string command, std::function<void(std::vector<std::string>)> commandHandler);
+    void RegisterCommand(std::string command, std::string explanation, std::function<void(std::vector<std::string>)> commandHandler);
     std::tuple<std::string, std::vector<std::string>> ParseCommand(std::string command);
     void OnHelpCommand(std::vector<std::string> arguments);
 };

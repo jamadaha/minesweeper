@@ -12,7 +12,7 @@ class CLI {
     // Game related
     void DisplayBoard(Board board);
     // Command related
-    void DisplayHelp(std::vector<std::string> allowedCommands);
+    void DisplayHelp(std::vector<std::tuple<std::string, std::string>> allowedCommands);
 
     void Start(std::function<void(std::string)> onCommand);
 };
