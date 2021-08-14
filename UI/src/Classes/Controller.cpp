@@ -4,7 +4,9 @@
 Controller::Controller(Board *board, CLI *cli) {
     this->board = board;
     this->cli = cli;
+}
 
+void Controller::InitCommands() {
     RegisterCommand("-h", "Shows available commands", std::bind(&Controller::OnHelpCommand, this, std::placeholders::_1));
     RegisterCommand("-help", "Shows available commands", std::bind(&Controller::OnHelpCommand, this, std::placeholders::_1));
 }
@@ -20,7 +22,7 @@ void Controller::OnCommandEntered(std::string input) {
 
         handler(std::get<1>(command));
     } catch (std::exception e) {
-        printf("Error: %s", e.what());
+        std::cout << "Error: " << e.what();
     }
 }
 
@@ -39,7 +41,10 @@ std::tuple<std::string, std::vector<std::string>> Controller::ParseCommand(std::
 }
 
 void Controller::RegisterCommand(std::string command, std::string explanation, std::function<void(std::vector<std::string>)> commandHandler) {
-    registeredCommands.emplace(command, std::tuple<std::string, std::function<void(std::vector<std::string>)>>(explanation, commandHandler));
+    if (command.length() == 0)
+        std::cout << "Error: " << "Command cannot have length 0";
+    else
+        registeredCommands.emplace(command, std::tuple<std::string, std::function<void(std::vector<std::string>)>>(explanation, commandHandler));
 }
 
 void Controller::OnHelpCommand(std::vector<std::string> arguments) {
