@@ -28,6 +28,11 @@ private:
     
     std::tuple<std::string, std::vector<std::string>> ParseCommand(std::string command);
     void OnHelpCommand(std::vector<std::string> arguments);
+    void OnRevealCommand(std::vector<std::string> arguments);
+
+    void Reset();
+
+    void OnGameOver();
 };
 
 #endif

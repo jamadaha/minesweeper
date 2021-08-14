@@ -2,7 +2,20 @@
 
 // Game related
 void CLI::DisplayBoard(Board board) {
+    for (int y = board.sizeY - 1; y >= 0; y--) {
+        for (int x = 0; x < board.sizeX; x++) {
+            if (board.GetRevealedSquare(x, y))
+                std::cout << board.GetSquare(x, y);
+            else
+                std::cout << '-';
+            std::cout << ' ';
+        }
+        std::cout << '\n';
+    }
+}
 
+void CLI::DisplayGameOver() {
+    std::cout << "You picked a bomb\n" << "Game Over!\n";
 }
 
 // Command related

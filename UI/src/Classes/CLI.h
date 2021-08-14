@@ -11,6 +11,8 @@ class CLI {
     public:
     // Game related
     void DisplayBoard(Board board);
+    void DisplayGameOver();
+    
     // Command related
     void DisplayHelp(std::vector<std::tuple<std::string, std::string>> allowedCommands);
 
