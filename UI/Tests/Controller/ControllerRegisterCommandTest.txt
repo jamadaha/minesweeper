@@ -1,6 +1,6 @@
 # Tests
 ## RegisterCommand
-add_executable(ControllerRegisterCommandTest Tests/ControllerRegisterCommandTest.cpp ${SOURCES})
+add_executable(ControllerRegisterCommandTest Tests/Controller/ControllerRegisterCommandTest.cpp ${SOURCES})
 
 ### Fail cases
 add_test(ControllerRegisterCommandTest_BlankRegister ControllerRegisterCommandTest 1 "" "")

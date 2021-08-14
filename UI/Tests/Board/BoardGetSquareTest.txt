@@ -1,6 +1,6 @@
 # Tests
 ## GetSquare
-add_executable(BoardGetSquareTest Tests/BoardGetSquareTest.cpp ${SOURCES})
+add_executable(BoardGetSquareTest Tests/Board/BoardGetSquareTest.cpp ${SOURCES})
 
 ### Fail cases
 add_test(BoardGetSquare_SizeZeroBoard BoardGetSquareTest 1 0 0 0 0 0)

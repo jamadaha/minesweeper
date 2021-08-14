@@ -1,6 +1,6 @@
 # Tests
 ## GetSquare
-add_executable(BoardPlaceBombTest Tests/BoardPlaceBombTest.cpp ${SOURCES})
+add_executable(BoardPlaceBombTest Tests/Board/BoardPlaceBombTest.cpp ${SOURCES})
 
 ### Fail cases
 

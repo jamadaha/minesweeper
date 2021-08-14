@@ -2,7 +2,7 @@
 #include <string>
 #include <stdlib.h>
 
-#include "./../src/Classes/Board.h"
+#include "./../../src/Classes/Board.h"
 
 int main(int argc, char* argv[]) {
     try {

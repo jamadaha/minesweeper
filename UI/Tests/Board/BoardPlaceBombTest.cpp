@@ -2,7 +2,7 @@
 #include <string>
 #include <stdlib.h>
 
-#include "./../src/Classes/Board.h"
+#include "./../../src/Classes/Board.h"
 
 int main(int argc, char* argv[]) {
     Board board = Board(std::atoi(argv[1]), std::atoi(argv[2]), std::atoi(argv[3]));

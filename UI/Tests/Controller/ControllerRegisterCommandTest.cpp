@@ -6,7 +6,7 @@
 #include <vector>
 #include <functional>
 
-#include "./../src/Classes/Controller.h"
+#include "./../../src/Classes/Controller.h"
 
 class TestHandler {
     public:
