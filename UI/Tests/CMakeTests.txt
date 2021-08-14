@@ -1,4 +1,4 @@
 # Path is writte relative to CMaeLists.txt in parent folder
-include(Tests/BoardGetSquareTest.txt) 
-include(Tests/BoardPlaceBombTest.txt)
-include(Tests/ControllerRegisterCommandTest.txt)
+include(Tests/Board/BoardGetSquareTest.txt) 
+include(Tests/Board/BoardPlaceBombTest.txt)
+include(Tests/Controller/ControllerRegisterCommandTest.txt)
