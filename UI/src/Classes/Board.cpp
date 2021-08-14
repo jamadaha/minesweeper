@@ -14,25 +14,19 @@ Board::Board(int bombCount, int sizeX, int sizeY) {
 }
 
 Board::Square Board::GetSquare(int x, int y) {
-    if (x < 0 || y < 0)
-        throw std::invalid_argument("Cannot get a negative coordinate.\n");
-    if (x >= sizeX || y >= sizeY)
+    if (IsOutOfBounds(x, y))
         throw std::invalid_argument("Coordinates out of bounds\n");
     return board[x + y * sizeX];
 }
 
 bool Board::GetRevealedSquare(int x, int y) {
-    if (x < 0 || y < 0)
-        throw std::invalid_argument("Cannot get a negative coordinate.\n");
-    if (x >= sizeX || y >= sizeY)
+    if (IsOutOfBounds(x, y))
         throw std::invalid_argument("Coordinates out of bounds\n");
     return revealedBoard[x + y * sizeX];
 }
 
 bool Board::RevealSquare(int x, int y) {
-    if (x < 0 || y < 0)
-        throw std::invalid_argument("Cannot get a negative coordinate.\n");
-    if (x >= sizeX || y >= sizeY)
+    if (IsOutOfBounds(x, y))
         throw std::invalid_argument("Coordinates out of bounds\n");
     if (GetRevealedSquare(x, y))
         throw std::invalid_argument("Square already revealed\n");
@@ -45,10 +39,16 @@ bool Board::RevealSquare(int x, int y) {
         return false;
 }
 
-void Board::SetRevealedSquare(bool state, int x, int y) {
+bool Board::IsOutOfBounds(int x, int y) {
     if (x < 0 || y < 0)
-        throw std::invalid_argument("Cannot get a negative coordinate.\n");
+        return true;
     if (x >= sizeX || y >= sizeY)
+        return true;
+    return false;
+}
+
+void Board::SetRevealedSquare(bool state, int x, int y) {
+    if (IsOutOfBounds(x, y))
         throw std::invalid_argument("Coordinates out of bounds\n");
     revealedBoard[x + y * sizeX] = state;
 }

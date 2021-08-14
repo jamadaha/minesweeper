@@ -28,6 +28,8 @@ class Board {
     Square *board;
     bool *revealedBoard;
 
+    bool IsOutOfBounds(int x, int y);
+
     void SetRevealedSquare(bool state, int x, int y);
     void SetSquare(Square square, int x, int y);
 
