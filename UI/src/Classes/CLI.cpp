@@ -5,7 +5,7 @@ void CLI::DisplayBoard(Board board) {
     for (int y = board.sizeY - 1; y >= 0; y--) {
         for (int x = 0; x < board.sizeX; x++) {
             if (board.GetRevealedSquare(x, y))
-                std::cout << board.GetSquare(x, y);
+                std::cout << board.GetNeighbourBombCount(x, y);
             else
                 std::cout << '-';
             std::cout << ' ';

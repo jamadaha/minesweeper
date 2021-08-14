@@ -18,6 +18,8 @@ class Board {
     Square GetSquare(int x, int y);
     bool GetRevealedSquare(int x, int y);
 
+    int GetNeighbourBombCount(int x, int y);
+
     // returns true on bomb
     bool RevealSquare(int x, int y);
 
