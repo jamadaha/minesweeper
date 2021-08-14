@@ -45,7 +45,7 @@ bool Board::RevealSquare(int x, int y) {
         return false;
 }
 
-bool Board::SetRevealedSquare(bool state, int x, int y) {
+void Board::SetRevealedSquare(bool state, int x, int y) {
     if (x < 0 || y < 0)
         throw std::invalid_argument("Cannot get a negative coordinate.\n");
     if (x >= sizeX || y >= sizeY)

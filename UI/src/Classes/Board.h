@@ -28,7 +28,7 @@ class Board {
     Square *board;
     bool *revealedBoard;
 
-    bool SetRevealedSquare(bool state, int x, int y);
+    void SetRevealedSquare(bool state, int x, int y);
     void SetSquare(Square square, int x, int y);
 
     void Clear();
