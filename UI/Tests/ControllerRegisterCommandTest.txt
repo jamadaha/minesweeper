@@ -1,0 +1,11 @@
+# Tests
+## RegisterCommand
+add_executable(ControllerRegisterCommandTest Tests/ControllerRegisterCommandTest.cpp ${SOURCES})
+
+### Fail cases
+add_test(ControllerRegisterCommandTest_BlankRegister ControllerRegisterCommandTest 1 "" "")
+add_test(ControllerRegisterCommandTest_NonRegisteredInput ControllerRegisterCommandTest 1 "" "-test")
+add_test(ControllerRegisterCommandTest_RegisterBlankRetrieve ControllerRegisterCommandTest 1 "-test" "")
+
+### Correct cases
+add_test(ControllerRegisterCommandTest_RegisterAndRetrieve ControllerRegisterCommandTest 0 "-test" "-test")

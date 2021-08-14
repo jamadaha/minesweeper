@@ -9,5 +9,6 @@ int main(int argc, char *argv[]) {
     Board board = Board(5, 16, 16);
     CLI cli = CLI();
     Controller controller = Controller(&board, &cli);
+    controller.InitCommands();
     controller.Start();
 }
