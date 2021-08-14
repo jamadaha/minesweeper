@@ -4,8 +4,6 @@
 Controller::Controller(Board *board, CLI *cli) {
     this->board = board;
     this->cli = cli;
-
-    Reset();
 }
 
 void Controller::InitCommands() {
@@ -22,7 +20,7 @@ void Controller::OnCommandEntered(std::string input) {
         handler = std::get<1>(registeredCommands[std::get<0>(command)]);
 
         if (handler == nullptr)
-            throw std::exception("Unregistered command");
+            throw std::exception("Unregistered command\n");
 
         handler(std::get<1>(command));
     } catch (std::exception e) {
@@ -82,5 +80,6 @@ void Controller::OnGameOver() {
 }
 
 void Controller::Start() {
+    Reset();
     cli->Start(std::bind(&Controller::OnCommandEntered, this, std::placeholders::_1));
 }
