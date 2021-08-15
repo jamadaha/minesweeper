@@ -6,7 +6,7 @@
 
 int main(int argc, char *argv[]) {
     srand(0);
-    Board board = Board(32, 8, 8);
+    Board board = Board(8, 8, 8);
     CLI cli = CLI();
     Controller controller = Controller(&board, &cli);
     controller.InitCommands();

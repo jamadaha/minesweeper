@@ -35,6 +35,8 @@ class Board {
     void SetRevealedSquare(bool state, int x, int y);
     void SetSquare(Square square, int x, int y);
 
+    void RevealNeighbours(int x, int y);
+
     void Clear();
     void PlaceBombs();
 };

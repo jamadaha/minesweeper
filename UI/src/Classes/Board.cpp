@@ -51,8 +51,10 @@ bool Board::RevealSquare(int x, int y) {
 
     if (GetSquare(x, y) == Square::Bomb)
         return true;
-    else
-        return false;
+    else if (GetNeighbourBombCount(x, y) == 0)
+        RevealNeighbours(x, y);
+
+    return false;
 }
 
 bool Board::IsOutOfBounds(int x, int y) {
@@ -78,6 +80,20 @@ void Board::SetSquare(Board::Square square, int x, int y) {
 void Board::Generate() {
     Clear();
     PlaceBombs();
+}
+
+void Board::RevealNeighbours(int x, int y) {
+    for (int xOffset = -1; xOffset <= 1; xOffset ++) {
+        for (int yOffset = -1; yOffset <= 1; yOffset ++) {
+            if (xOffset == 0 && yOffset == 0)
+                continue;
+            if (IsOutOfBounds(x + xOffset, y + yOffset))
+                continue;
+
+            if (!GetRevealedSquare(x + xOffset, y + yOffset))
+                RevealSquare(x + xOffset, y + yOffset);
+        }
+    }
 }
 
 void Board::Clear() {
