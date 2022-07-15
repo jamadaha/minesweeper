@@ -20,10 +20,10 @@ void Controller::OnCommandEntered(std::string input) {
         handler = std::get<1>(registeredCommands[std::get<0>(command)]);
 
         if (handler == nullptr)
-            throw std::exception("Unregistered command\n");
+            throw std::invalid_argument("Unregistered command\n");
 
         handler(std::get<1>(command));
-    } catch (std::exception e) {
+    } catch (std::invalid_argument e) {
         std::cout << "Error: " << e.what();
     }
 }
