@@ -47,7 +47,7 @@ int main(int argc, char* argv[]) {
         }
     } else {
         if (result.length() > 0) {
-            printf("Unexpected exception: %s\n", result);
+            printf("Unexpected exception: %s\n", result.c_str());
             exit(EXIT_FAILURE);
         } else {
             exit(EXIT_SUCCESS);
